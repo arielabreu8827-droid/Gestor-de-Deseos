@@ -55,5 +55,3 @@ src/
 * El patrón **DAO** ayuda a mantener el código ordenado y fácil de mantener.
 
 
-Si quieres, puedo prepararte este README **con ejemplos de código e imágenes** para que se vea más profesional y atractivo para tu portafolio.
-¿Quieres que lo haga así?
