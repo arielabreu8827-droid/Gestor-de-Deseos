@@ -8,19 +8,15 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ariel
- */
+
 public class FrmDeseos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmDeseos
-     */
+
     public FrmDeseos() {
          initComponents();
         cargarTabla();
-
+        this.setAlwaysOnTop(true);
+        this.toFront();
     }
 
     
@@ -63,28 +59,19 @@ private void cargarTabla() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("LISTA DE DESEOS‖");
+        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 204));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Agregar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jTable1.setBackground(new java.awt.Color(102, 255, 153));
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -98,45 +85,89 @@ private void cargarTabla() {
         jTable1.setName(""); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setText("ELIMINAR");
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setText("LISTA DE DESEOS.");
+
+        jButton2.setBackground(new java.awt.Color(51, 255, 0));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Agregar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("ELIMINAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("ACTUALIZAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(250, 250, 250))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9))
         );
 
         pack();
@@ -154,47 +185,94 @@ private void cargarTabla() {
     ventana.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
     int viewRow = jTable1.getSelectedRow();
     if (viewRow == -1) {
         JOptionPane.showMessageDialog(this, "Selecciona un deseo para eliminar.");
         return;
+    }//GEN-LAST:event_jButton3ActionPerformed
+     // Confirmar eliminación
+    int confirm = JOptionPane.showConfirmDialog(this, 
+        "¿Estás seguro de eliminar este deseo?", 
+        "Confirmar eliminación", 
+        JOptionPane.YES_NO_OPTION);
+
+    if (confirm != JOptionPane.YES_OPTION) {
+        return; // cancelar si el usuario dice que no
     }
 
-    // Convertir índice de la vista al índice del modelo (por si hay ordenamiento)
+    try {
+        // Obtener el ID desde la tabla (columna 0)
+        int modelRow = jTable1.convertRowIndexToModel(viewRow);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Object idVal = model.getValueAt(modelRow, 0);
+
+        int id = (idVal instanceof Integer) ? (Integer) idVal : Integer.parseInt(idVal.toString());
+
+        // Llamar al DAO para eliminar
+        DeseosDao dao = new DeseosDao();
+        int filas = dao.eliminar(id);
+
+        if (filas > 0) {
+            JOptionPane.showMessageDialog(this, "Deseo eliminado correctamente ✅");
+            cargarTabla(); // recargar la tabla
+        } else {
+            JOptionPane.showMessageDialog(this, "No se eliminó nada (ID no encontrado)");
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage());
+    }
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       int viewRow = jTable1.getSelectedRow();
+    if (viewRow == -1) {
+        JOptionPane.showMessageDialog(this, "Selecciona un deseo para actualizar.");
+        return;
+    }
+
+    // Obtener valores de la fila seleccionada
     int modelRow = jTable1.convertRowIndexToModel(viewRow);
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
     Object idVal = model.getValueAt(modelRow, 0);
     int id = (idVal instanceof Integer) ? (Integer) idVal : Integer.parseInt(idVal.toString());
-    String nombre = String.valueOf(model.getValueAt(modelRow, 1));
+    String nombreActual = String.valueOf(model.getValueAt(modelRow, 1));
+    double precioActual = Double.parseDouble(model.getValueAt(modelRow, 2).toString());
+    int cantidadActual = Integer.parseInt(model.getValueAt(modelRow, 3).toString());
 
-    int confirm = JOptionPane.showConfirmDialog(
-        this,
-        "¿Seguro que quieres eliminar el deseo: " + nombre + "?",
-        "Confirmar eliminación",
-        JOptionPane.YES_NO_OPTION
-    );
-    if (confirm != JOptionPane.YES_OPTION) return;
+    // Pedir nuevos valores con JOptionPane (puedes hacer un formulario aparte si quieres más bonito)
+    String nuevoNombre = JOptionPane.showInputDialog(this, "Editar nombre:", nombreActual);
+    if (nuevoNombre == null || nuevoNombre.trim().isEmpty()) return;
+
+    String nuevoPrecioStr = JOptionPane.showInputDialog(this, "Editar precio:", precioActual);
+    if (nuevoPrecioStr == null) return;
+    double nuevoPrecio = Double.parseDouble(nuevoPrecioStr);
+
+    String nuevaCantidadStr = JOptionPane.showInputDialog(this, "Editar cantidad:", cantidadActual);
+    if (nuevaCantidadStr == null) return;
+    int nuevaCantidad = Integer.parseInt(nuevaCantidadStr);
+
+    Deseos actualizado = new Deseos(id, nuevoNombre, nuevoPrecio, nuevaCantidad);
 
     try {
         DeseosDao dao = new DeseosDao();
-        int affected = dao.eliminar(id);
+        int filas = dao.actualizar(id, actualizado);
 
-        if (affected > 0) {
-            // Quita la fila del modelo localmente (más rápido) o llama cargarTabla()
-            model.removeRow(modelRow);
-            // cargarTabla(); // si prefieres recargar todo
-            JOptionPane.showMessageDialog(this, "Eliminado correctamente.");
+        if (filas > 0) {
+            JOptionPane.showMessageDialog(this, "Deseo actualizado correctamente ✅");
+            cargarTabla(); // 🔄 recargar la tabla
         } else {
-            JOptionPane.showMessageDialog(this, "No se eliminó nada (ID no encontrado).");
+            JOptionPane.showMessageDialog(this, "No se actualizó nada (ID no encontrado)");
         }
     } catch (Exception e) {
         e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Error al actualizar: " + e.getMessage());
     }
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -235,7 +313,9 @@ private void cargarTabla() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
