@@ -8,24 +8,22 @@ import model.Deseos;
 
 public class FrmDeseosNew extends javax.swing.JFrame {
     private final DeseosDao dao = new DeseosDao();
-    // Si no usas FrmDeseos, puedes comentarlo:
-    // private final FrmDeseos ess = new FrmDeseos();
 
     public FrmDeseosNew() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-    /** nombre1=Nombre, nombre=Precio, nombre2=Cantidad */
+    /** nombre1 = Nombre, nombre = Precio, nombre2 = Cantidad */
     private void clear() {
         nombre1.setText("");
         nombre.setText("");
         nombre2.setText("");
         nombre1.requestFocus();
     }
-    // ====== A PARTIR DE AQUÍ VA EL CÓDIGO GENERADO POR NETBEANS ======
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
 
+    // ====== CÓDIGO GENERADO (ajustado para compatibilidad) ======
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -112,18 +110,19 @@ public class FrmDeseosNew extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLabel4))
-                            .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel4)
+                                    .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,9 +131,9 @@ public class FrmDeseosNew extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
+                .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,11 +141,11 @@ public class FrmDeseosNew extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jLabel5.setText("Ariel Abreuಥ_ಥ");
@@ -195,26 +194,28 @@ public class FrmDeseosNew extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-
+        // Precio: enter -> cantidad
+        nombre2.requestFocus();
     }//GEN-LAST:event_nombreActionPerformed
 
     private void nombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre1ActionPerformed
-        // TODO add your handling code here:
+        // Nombre: enter -> precio
+        nombre.requestFocus();
     }//GEN-LAST:event_nombre1ActionPerformed
 
     private void nombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombre2ActionPerformed
-        
-
+        // Cantidad: enter -> guardar
+        jButton1ActionPerformed(evt);
     }//GEN-LAST:event_nombre2ActionPerformed
-    ///////Boton Atras
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- // ess.setVisible(true); // si quieres volver al otro frame
-        dispose();
 
+    // Botón Atrás
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-//////Boton Guardar
+
+    // Botón Guardar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- String nom = nombre1.getText().trim();      // Nombre
+        String nom = nombre1.getText().trim();      // Nombre
         String precioStr = nombre.getText().trim(); // Precio
         String cantStr = nombre2.getText().trim();  // Cantidad
 
@@ -228,12 +229,17 @@ public class FrmDeseosNew extends javax.swing.JFrame {
         try {
             precio = Double.parseDouble(precioStr);
             cantidad = Integer.parseInt(cantStr);
+            if (precio < 0 || cantidad < 0) {
+                JOptionPane.showMessageDialog(this, "Precio y Cantidad deben ser no negativos.", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Formato inválido en Precio o Cantidad.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         try {
+            // Insertar SIN id (autogenerado por la BD)
             Deseos d = new Deseos(nom, precio, cantidad);
             int rows = dao.insert(d);
             if (rows > 0) {
@@ -244,10 +250,8 @@ public class FrmDeseosNew extends javax.swing.JFrame {
             }
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(this, "Error al guardar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-}
-    
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -263,5 +267,4 @@ public class FrmDeseosNew extends javax.swing.JFrame {
     private javax.swing.JTextField nombre1;
     private javax.swing.JTextField nombre2;
     // End of variables declaration//GEN-END:variables
-
 }

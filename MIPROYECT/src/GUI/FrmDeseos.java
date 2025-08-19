@@ -1,11 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package GUI;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
+import Dao.DeseosDao;
+import model.Deseos;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +18,42 @@ public class FrmDeseos extends javax.swing.JFrame {
      * Creates new form FrmDeseos
      */
     public FrmDeseos() {
-        initComponents();
+         initComponents();
+        cargarTabla();
+
     }
 
+    
+private void cargarTabla() {
+    try {
+        DeseosDao dao = new DeseosDao();
+        List<Deseos> lista = dao.listar();
+
+        DefaultTableModel model = new DefaultTableModel(
+            new Object[]{"ID", "Nombre", "Precio", "Cantidad"}, 0
+        ) {
+            @Override public boolean isCellEditable(int row, int col) { return false; }
+        };
+
+        for (Deseos d : lista) {
+            model.addRow(new Object[]{
+                d.getId(), d.getNombre(), d.getPrecio(), d.getCantidad()
+            });
+        }
+
+        jTable1.setModel(model);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.setRowSelectionAllowed(true);
+        jTable1.setColumnSelectionAllowed(false);
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al cargar la tabla: " + e.getMessage());
+    }
+}
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,10 +95,16 @@ public class FrmDeseos extends javax.swing.JFrame {
                 "Nombre", "Precio", "Cantidad"
             }
         ));
+        jTable1.setName(""); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setText("ELIMINAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,15 +144,58 @@ public class FrmDeseos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        FrmDeseosNew ventana = new FrmDeseosNew();
-        ventana.addWindowListener(new WindowAdapter() {
-
-            public void windowClosed(WindowEvent e) {
-                
-            }
-        });
-        ventana.setVisible(true);
+      FrmDeseosNew ventana = new FrmDeseosNew();
+    ventana.addWindowListener(new WindowAdapter() {
+        @Override
+        public void windowClosed(WindowEvent e) {
+            cargarTabla(); // 🔄 recargar al cerrar el formulario hijo
+        }
+    });
+    ventana.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    int viewRow = jTable1.getSelectedRow();
+    if (viewRow == -1) {
+        JOptionPane.showMessageDialog(this, "Selecciona un deseo para eliminar.");
+        return;
+    }
+
+    // Convertir índice de la vista al índice del modelo (por si hay ordenamiento)
+    int modelRow = jTable1.convertRowIndexToModel(viewRow);
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    Object idVal = model.getValueAt(modelRow, 0);
+    int id = (idVal instanceof Integer) ? (Integer) idVal : Integer.parseInt(idVal.toString());
+    String nombre = String.valueOf(model.getValueAt(modelRow, 1));
+
+    int confirm = JOptionPane.showConfirmDialog(
+        this,
+        "¿Seguro que quieres eliminar el deseo: " + nombre + "?",
+        "Confirmar eliminación",
+        JOptionPane.YES_NO_OPTION
+    );
+    if (confirm != JOptionPane.YES_OPTION) return;
+
+    try {
+        DeseosDao dao = new DeseosDao();
+        int affected = dao.eliminar(id);
+
+        if (affected > 0) {
+            // Quita la fila del modelo localmente (más rápido) o llama cargarTabla()
+            model.removeRow(modelRow);
+            // cargarTabla(); // si prefieres recargar todo
+            JOptionPane.showMessageDialog(this, "Eliminado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se eliminó nada (ID no encontrado).");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage());
+    }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

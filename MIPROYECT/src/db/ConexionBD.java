@@ -1,17 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// Ejemplo de ConexionBD para Laragon (ajústalo a tu proyecto)
 package db;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConexionBD {
     public static Connection conectar() throws SQLException{
         return DriverManager.getConnection(
-                  "jdbc:mysql://localhost:3306/escuela?serverTimezone=UTC",
+                  "jdbc:mysql://localhost:3306/myproyecto?serverTimezone=UTC",
                  "root", "12345" 
          );
     }
     
 }
+
+
